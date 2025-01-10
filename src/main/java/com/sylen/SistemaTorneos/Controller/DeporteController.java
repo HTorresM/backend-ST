@@ -4,6 +4,7 @@ import com.sylen.SistemaTorneos.Model.entity.Deporte;
 import com.sylen.SistemaTorneos.Service.DeporteApp;
 import com.sylen.SistemaTorneos.utils.Constantes;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Positive;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -27,7 +28,10 @@ public class DeporteController {
     }
 
     @GetMapping(Constantes.DEPORTE_DETALLE)
-    public ResponseEntity<?> getOneDeporte ( @PathVariable(name = "id", required = true) Long id ){
+    public ResponseEntity<?> getOneDeporte (
+            @PathVariable(name = "id", required = true)
+            @Positive(message = "El id tiene que ser positivo")
+            Long id ){
         Deporte deporte = deporteApp.getOneDeporte(id);
         if (deporte == null){
             return ResponseEntity.notFound().build();

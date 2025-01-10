@@ -25,7 +25,6 @@ public class DeporteAppImpl implements DeporteApp{
 
     @Override
     public void save(Deporte deporte) {
-        // TODO: Validaciones a Priori
         deporteDAO.save(deporte);
     }
 }

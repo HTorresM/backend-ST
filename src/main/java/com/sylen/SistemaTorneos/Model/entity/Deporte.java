@@ -11,6 +11,7 @@ public class Deporte implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_deporte")
     private Integer idDeporte;
 
     @Column

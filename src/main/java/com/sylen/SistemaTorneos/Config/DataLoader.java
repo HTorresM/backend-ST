@@ -8,19 +8,18 @@ import com.sylen.SistemaTorneos.Model.entity.Persona;
 import com.sylen.SistemaTorneos.Model.entity.Plantel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
+@Configuration
 public class DataLoader implements CommandLineRunner {
 
     @Autowired
     private IDeporteDAO deporteDAO;
-
     @Autowired
     private IPersonaDAO personaDAO;
-
     @Autowired
     private IPlantelDAO plantelDAO;
 
