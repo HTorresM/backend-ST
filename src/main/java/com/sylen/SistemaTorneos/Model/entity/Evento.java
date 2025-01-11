@@ -56,7 +56,6 @@ public class Evento implements Serializable {
         this.tipoEvento = tipoEvento;
         this.persona = persona;
         this.plantel = plantel;
-        this.torneo = torneo;
     }
 
 

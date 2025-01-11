@@ -45,9 +45,7 @@ public class Equipo implements Serializable {
         this.nombre = nombre;
         this.logo = logo;
         this. torneoInscrito = torneoInscrito;
-        this.torneoGanador = torneoGanador;
         this.participantes = participantes;
-        this.encuentroLocal = encuentro;    //Como identificaremos que es un encuentro de local o de visitante?
     } 
 
     public Integer getIdEquipo() {

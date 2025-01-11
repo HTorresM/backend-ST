@@ -56,9 +56,6 @@ public class Torneo implements Serializable {
         this.imagen = imagen;
         this.evento = evento;
         this.deporte = deporte;
-        this.equipos = equipos;
-        this.equipoGanador = equipoGanador;
-        this.encuentros = encuentros;
     }
 
     public Integer getIdTorneo() {

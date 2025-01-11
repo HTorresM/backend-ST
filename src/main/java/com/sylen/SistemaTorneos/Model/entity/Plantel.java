@@ -30,12 +30,6 @@ public class Plantel implements Serializable {
         super();
     }
 
-    public Plantel(@NotBlank String nombre, List<Evento> eventos) {
-        this.idPlantel = null;
-        this.nombre = nombre;
-        this.eventos = eventos;
-    }
-
     public Integer getIdPlantel() {
         return idPlantel;
     }
