@@ -50,6 +50,24 @@ public class Participante implements Serializable {
     private Equipo equipoParticipante;
 
     public Participante (){ super(); }
+    
+
+    public Participante(String nombre, Integer numeroCuenta, String celular, String telefonoEmergencia, String tipoSangre, String alergias, String numeroSeguro, String correo, String licenciatura, String tipoPersona, Boolean esCapitan, Equipo equipoParticipante) {
+        this.idParticipante = null;
+        this.nombre = nombre;
+        this.numeroCuenta = numeroCuenta;
+        this.celular = celular;
+        this.telefonoEmergencia = telefonoEmergencia;
+        this.tipoSangre = tipoSangre;
+        this.alergias = alergias;
+        this.numeroSeguro = numeroSeguro;
+        this.correo = correo;
+        this.licenciatura = licenciatura;
+        this.tipoPersona = tipoPersona;
+        this.esCapitan = esCapitan;
+        this.equipoParticipante = equipoParticipante;
+    }
+
 
     public Integer getIdParticipante() {
         return idParticipante;

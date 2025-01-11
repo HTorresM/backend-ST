@@ -46,6 +46,20 @@ public class Evento implements Serializable {
 
     public Evento (){ super(); }
 
+    
+    public Evento(String titulo, String descripcion, Date fechaInicial, Date fechaFinal, Integer tipoEvento, Persona persona, Plantel plantel, Torneo torneo) {
+        this.idEvento = null;
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.fechaInicial = fechaInicial;
+        this.fechaFinal = fechaFinal;
+        this.tipoEvento = tipoEvento;
+        this.persona = persona;
+        this.plantel = plantel;
+        this.torneo = torneo;
+    }
+
+
     public Integer getIdEventoM() {
         return idEvento;
     }

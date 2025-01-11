@@ -40,6 +40,16 @@ public class Equipo implements Serializable {
 
     public Equipo() { super(); }
 
+    public Equipo(String nombre, String logo, Integer puntuacion, Torneo torneoInscrito, Torneo torneoGanador, List<Participante> participantes, Encuentro encuentro) { 
+        idEquipo = null;
+        this.nombre = nombre;
+        this.logo = logo;
+        this. torneoInscrito = torneoInscrito;
+        this.torneoGanador = torneoGanador;
+        this.participantes = participantes;
+        this.encuentroLocal = encuentro;    //Como identificaremos que es un encuentro de local o de visitante?
+    } 
+
     public Integer getIdEquipo() {
         return idEquipo;
     }

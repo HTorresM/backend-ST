@@ -38,6 +38,15 @@ public class Encuentro implements Serializable {
         super();
     }
 
+    public Encuentro(Date fechaEncuentro, String ubicacion, Torneo torneo, Equipo equipoLocal, Equipo equipoVisitante) {
+        this.idEncuentro = null;
+        this.fechaEncuentro = fechaEncuentro;
+        this.ubicacion = ubicacion;
+        this.torneo = torneo;
+        this.equipoLocal = equipoLocal;
+        this.equipoVisitante = equipoVisitante; 
+    }
+
     public Integer getIdEncuentro() {
         return idEncuentro;
     }
