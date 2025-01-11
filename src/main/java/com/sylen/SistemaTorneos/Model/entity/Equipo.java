@@ -26,9 +26,6 @@ public class Equipo implements Serializable {
     @Column
     private Integer puntuacion;
 
-    @OneToOne( mappedBy = "equipoGanador" )
-    private Torneo torneoGanador;
-
     @OneToMany(mappedBy = "equipoParticipante")
     private List<Participante> participantes;
 
@@ -40,13 +37,12 @@ public class Equipo implements Serializable {
 
     public Equipo() { super(); }
 
-    public Equipo(String nombre, String logo, Integer puntuacion, Torneo torneoInscrito, Torneo torneoGanador, List<Participante> participantes, Encuentro encuentro) { 
+    public Equipo(String nombre, String logo, Torneo torneoInscrito) {
         idEquipo = null;
         this.nombre = nombre;
         this.logo = logo;
         this. torneoInscrito = torneoInscrito;
-        this.participantes = participantes;
-    } 
+    }
 
     public Integer getIdEquipo() {
         return idEquipo;
@@ -86,14 +82,6 @@ public class Equipo implements Serializable {
 
     public void setTorneoInscrito(Torneo torneoInscrito) {
         this.torneoInscrito = torneoInscrito;
-    }
-
-    public Torneo getTorneoGanador() {
-        return torneoGanador;
-    }
-
-    public void setTorneoGanador(Torneo torneoGanador) {
-        this.torneoGanador = torneoGanador;
     }
 
     public List<Participante> getParticipantes() {

@@ -48,7 +48,7 @@ public class Torneo implements Serializable {
         super();
     }
 
-    public Torneo(String nombre, String tipo, String reglamento, String imagen, Evento evento, Deporte deporte, List<Equipo> equipos, Equipo equipoGanador, List<Encuentro> encuentros) {
+    public Torneo(String nombre, String tipo, String reglamento, String imagen, Evento evento, Deporte deporte) {
         this.idTorneo = null;
         this.nombre = nombre;
         this.tipo = tipo;
