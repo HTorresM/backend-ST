@@ -27,15 +27,13 @@ public class Torneo implements Serializable {
     private String imagen;
 
     @OneToOne
-    @JoinColumn( name = "evento_id")
     private Evento evento;
 
-    @OneToOne
-    @JoinColumn(name = "deporte_id")
-    private Deporte deporte;
+    @Column(name = "deporte_id")
+    private Integer idDeporte;
 
-    @OneToMany(mappedBy = "torneoInscrito")
-    private List<Equipo> equipos = new ArrayList<Equipo>();
+    //@OneToMany(targetEntity = Equipo.class)
+    //private List<Equipo> equipos;
 
     @OneToOne
     @JoinColumn(name = "ganador_id")
@@ -48,14 +46,20 @@ public class Torneo implements Serializable {
         super();
     }
 
-    public Torneo(String nombre, String tipo, String reglamento, String imagen, Evento evento, Deporte deporte) {
+    public Torneo( Integer idTorneo) {
+        super();
+        this.idTorneo = idTorneo;
+    }
+
+    public Torneo(String nombre, String tipo, String reglamento, String imagen, Evento evento, Integer idDeporte) {
         this.idTorneo = null;
         this.nombre = nombre;
         this.tipo = tipo;
         this.reglamento = reglamento;
         this.imagen = imagen;
         this.evento = evento;
-        this.deporte = deporte;
+        this.idDeporte = idDeporte;
+        this.equipoGanador = null;
     }
 
     public Integer getIdTorneo() {
@@ -110,31 +114,39 @@ public class Torneo implements Serializable {
         this.evento = evento;
     }
 
-    public Deporte getDeporte() {
-        return deporte;
+    public Integer getDeporte() {
+        return idDeporte;
     }
 
-    public void setDeporte(Deporte deporte) {
-        this.deporte = deporte;
+    public void setDeporte(Integer deporte) {
+        this.idDeporte = deporte;
     }
 
     public void setEquipoGanador(Equipo equipoGanador) {
         this.equipoGanador = equipoGanador;
     }
 
-    public List<Equipo> getEquipos() {
+   /* public List<Equipo> getEquipos() {
         return equipos;
     }
 
     public void setEquipos(List<Equipo> equipos) {
         this.equipos = equipos;
     }
-
+*/
     public List<Encuentro> getEncuentros() {
         return encuentros;
     }
 
     public void setEncuentros(List<Encuentro> encuentros) {
         this.encuentros = encuentros;
+    }
+
+    public Integer getIdDeporte() {
+        return idDeporte;
+    }
+
+    public void setIdDeporte(Integer idDeporte) {
+        this.idDeporte = idDeporte;
     }
 }

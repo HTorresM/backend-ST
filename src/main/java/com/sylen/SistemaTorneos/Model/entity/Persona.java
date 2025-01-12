@@ -34,7 +34,11 @@ public class Persona implements Serializable {
     private Evento evento;
 
     public Persona() {
+    }
+
+    public Persona(Integer idPersona) {
         super();
+        this.idPersona = idPersona;
     }
 
     public Persona(String nombre, String tipo, String numeroCuenta, String celular, String correo, String licenciatura) {

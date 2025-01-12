@@ -24,7 +24,7 @@ public class EventoRepository implements IEventoDAO {
     @Override
     @Transactional
     public void save(Evento evento) {
-        if ( evento.getIdEventoM() != null && evento.getIdEventoM() != 0 ){
+        if ( evento.getIdEvento() != null && evento.getIdEvento() != 0 ){
             // Actualizar
             em.merge(evento);
         } else {

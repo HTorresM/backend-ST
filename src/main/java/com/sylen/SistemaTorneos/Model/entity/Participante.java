@@ -50,7 +50,12 @@ public class Participante implements Serializable {
     private Equipo equipoParticipante;
 
     public Participante (){ super(); }
-    
+
+    public Participante( String nombre, Equipo equipoParticipante) {
+        this.idParticipante = null;
+        this.equipoParticipante = equipoParticipante;
+        this.nombre = nombre;
+    }
 
     public Participante(String nombre, Integer numeroCuenta, String celular, String telefonoEmergencia, String tipoSangre, String alergias, String numeroSeguro, String correo, String licenciatura, String tipoPersona, Boolean esCapitan, Equipo equipoParticipante) {
         this.idParticipante = null;

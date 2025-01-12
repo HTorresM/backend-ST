@@ -37,16 +37,17 @@ public class Evento implements Serializable {
     @JoinColumn( name = "responsable_id" , nullable = false )
     private Persona persona;
 
-    @ManyToOne
+    @Column
     @JoinColumn( name = "plantel_id" , nullable = false )
-    private Plantel plantel;
-
-    @OneToOne( mappedBy = "evento" )
-    private Torneo torneo;
+    private Integer plantel;
 
     public Evento (){ super(); }
 
-    public Evento(String titulo, String descripcion, Date fechaInicial, Date fechaFinal, Integer tipoEvento, Persona persona, Plantel plantel) {
+    public Evento(Integer idEvento) {
+        this.idEvento = idEvento;
+    }
+
+    public Evento(String titulo, String descripcion, Date fechaInicial, Date fechaFinal, Integer tipoEvento, Persona persona, Integer plantel) {
         this.idEvento = null;
         this.titulo = titulo;
         this.descripcion = descripcion;
@@ -55,15 +56,6 @@ public class Evento implements Serializable {
         this.tipoEvento = tipoEvento;
         this.persona = persona;
         this.plantel = plantel;
-    }
-
-
-    public Integer getIdEventoM() {
-        return idEvento;
-    }
-
-    public void setIdEventoM(Integer idEvento) {
-        this.idEvento = idEvento;
     }
 
     public String getTitulo() {
@@ -108,15 +100,12 @@ public class Evento implements Serializable {
 
     public void setPersona(Persona persona) { this.persona = persona; }
 
-    public Plantel getPlantel() { return plantel; }
+    public Integer getPlantel() { return plantel; }
 
-    public void setPlantel(Plantel plantel) { this.plantel = plantel; }
+    public void setPlantel(Integer plantel) { this.plantel = plantel; }
 
     public Integer getIdEvento() { return idEvento; }
 
     public void setIdEvento(Integer idEvento) { this.idEvento = idEvento; }
 
-    public Torneo getTorneo() { return torneo; }
-
-    public void setTorneo(Torneo torneo) { this.torneo = torneo; }
 }

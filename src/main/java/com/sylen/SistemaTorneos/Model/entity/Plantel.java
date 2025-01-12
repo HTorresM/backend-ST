@@ -21,13 +21,17 @@ public class Plantel implements Serializable {
     @OneToMany( mappedBy = "plantel" )
     private List<Evento> eventos;
 
+    public Plantel() {
+    }
+
     public Plantel(String nombre) {
         this.idPlantel = null;
         this.nombre = nombre;
     }
 
-    public Plantel() {
+    public Plantel( Integer idPlantel) {
         super();
+        this.idPlantel = idPlantel;
     }
 
     public Integer getIdPlantel() {

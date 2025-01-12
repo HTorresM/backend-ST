@@ -17,8 +17,8 @@ public class Equipo implements Serializable {
     private String nombre;
 
     @ManyToOne
-    @JoinColumn( name = "torneo_id" )
-    private Torneo torneoInscrito;
+    @JoinColumn( name = "torneo_id", nullable = false)
+    private Torneo torneo;
 
     @Column
     private String logo;
@@ -37,11 +37,15 @@ public class Equipo implements Serializable {
 
     public Equipo() { super(); }
 
-    public Equipo(String nombre, String logo, Torneo torneoInscrito) {
+    public Equipo(Integer idEquipo) {
+        this.idEquipo = idEquipo;
+    }
+
+    public Equipo(String nombre, String logo, Torneo torneo) {
         idEquipo = null;
         this.nombre = nombre;
         this.logo = logo;
-        this. torneoInscrito = torneoInscrito;
+        this.torneo = torneo;
     }
 
     public Integer getIdEquipo() {
@@ -76,12 +80,12 @@ public class Equipo implements Serializable {
         this.puntuacion = puntuacion;
     }
 
-    public Torneo getTorneoInscrito() {
-        return torneoInscrito;
+    public Torneo getTorneo() {
+        return torneo;
     }
 
-    public void setTorneoInscrito(Torneo torneoInscrito) {
-        this.torneoInscrito = torneoInscrito;
+    public void setTorneo(Torneo torneo) {
+        this.torneo = torneo;
     }
 
     public List<Participante> getParticipantes() {

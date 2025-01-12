@@ -18,9 +18,6 @@ public class Deporte implements Serializable {
     @NotBlank
     private String nombre;
 
-    //@OneToOne( mappedBy = "deporte" )
-    //private Torneo torneo;
-
     public Deporte(String nombre) {
         this.idDeporte = null;
         this.nombre = nombre;
@@ -48,7 +45,4 @@ public class Deporte implements Serializable {
         this.nombre = nombre;
     }
 
-    //public Torneo getTorneo() { return torneo; }
-
-    //public void setTorneo(Torneo torneo) { this.torneo = torneo; }
 }

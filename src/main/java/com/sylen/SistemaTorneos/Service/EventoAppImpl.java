@@ -13,6 +13,7 @@ public class EventoAppImpl implements EventoApp{
     @Autowired
     private IEventoDAO eventoDAO;
 
+    // TODO: SOLO TRAER EVENTOS VIGENTES
     @Override
     public List<Evento> findAll() {
         return eventoDAO.findAll();
