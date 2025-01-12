@@ -7,6 +7,7 @@ import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -19,6 +20,16 @@ public class TorneoRepository implements ITorneoDAO {
     @Transactional(readOnly = true)
     public List<Torneo> findAll() {
         return em.createQuery("from Torneo").getResultList();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Torneo> findAllCaducados(Date fechaActual) {
+        return em.createQuery(
+                        "SELECT t FROM Torneo t WHERE t.fechaLimiteIncripcion <= :fechaActual",
+                        Torneo.class)
+                .setParameter("fechaCaducada", fechaActual)
+                .getResultList();
     }
 
     @Override

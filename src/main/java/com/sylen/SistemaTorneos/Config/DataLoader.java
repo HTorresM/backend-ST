@@ -115,5 +115,6 @@ public class DataLoader implements CommandLineRunner {
         for (Participante participante : participantes){
             participanteDAO.save(participante);
         }
+
     }
 }

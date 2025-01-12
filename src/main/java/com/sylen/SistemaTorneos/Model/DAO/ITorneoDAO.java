@@ -2,6 +2,7 @@ package com.sylen.SistemaTorneos.Model.DAO;
 
 import com.sylen.SistemaTorneos.Model.entity.Torneo;
 
+import java.util.Date;
 import java.util.List;
 
 public interface ITorneoDAO {
@@ -11,6 +12,12 @@ public interface ITorneoDAO {
      * @return Lista de torneos
      */
     public List<Torneo> findAll();
+
+    /**
+     * Método que regresa una lista con todos los torneos
+     * @return Lista de torneos
+     */
+    public List<Torneo> findAllCaducados(Date fechaActual);
 
     /**
      * Método que guarda la información de un torneo

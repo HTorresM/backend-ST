@@ -5,6 +5,7 @@ import com.sylen.SistemaTorneos.Model.entity.Torneo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -16,6 +17,11 @@ public class TorneoAppImpl implements TorneoApp{
     @Override
     public List<Torneo> findAll() {
         return torneoDAO.findAll();
+    }
+
+    @Override
+    public List<Torneo> findAllCaducados(Date fechaActual) {
+        return torneoDAO.findAllCaducados(fechaActual);
     }
 
     @Override

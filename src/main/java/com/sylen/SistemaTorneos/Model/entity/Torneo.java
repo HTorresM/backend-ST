@@ -1,9 +1,11 @@
 package com.sylen.SistemaTorneos.Model.entity;
 
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -32,8 +34,10 @@ public class Torneo implements Serializable {
     @Column(name = "deporte_id")
     private Integer idDeporte;
 
-    //@OneToMany(targetEntity = Equipo.class)
-    //private List<Equipo> equipos;
+    @Column(name = "fecha_limite_inscripcion")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
+    private Date fechaLimiteInscripcion;
 
     @OneToOne
     @JoinColumn(name = "ganador_id")
@@ -126,14 +130,6 @@ public class Torneo implements Serializable {
         this.equipoGanador = equipoGanador;
     }
 
-   /* public List<Equipo> getEquipos() {
-        return equipos;
-    }
-
-    public void setEquipos(List<Equipo> equipos) {
-        this.equipos = equipos;
-    }
-*/
     public List<Encuentro> getEncuentros() {
         return encuentros;
     }
@@ -148,5 +144,13 @@ public class Torneo implements Serializable {
 
     public void setIdDeporte(Integer idDeporte) {
         this.idDeporte = idDeporte;
+    }
+
+    public Date getFechaLimiteInscripcion() {
+        return fechaLimiteInscripcion;
+    }
+
+    public void setFechaLimiteInscripcion(Date fechaLimiteInscripcion) {
+        this.fechaLimiteInscripcion = fechaLimiteInscripcion;
     }
 }
