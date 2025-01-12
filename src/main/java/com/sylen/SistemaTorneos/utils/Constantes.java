@@ -15,7 +15,7 @@ public class Constantes {
     public static final String CREA_ENCUENTRO = "/encuentro";
 
     //  EQUIPOS
-    public static final String LISTA_EQUIPOS = "/equipos";
+    public static final String LISTA_EQUIPOS = "/equipos/{idTorneo}";
     public static final String EQUIPO_DETALLE = "/equipo/{id}";
     public static final String CREA_EQUIPO = "/equipo";
 

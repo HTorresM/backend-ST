@@ -17,8 +17,11 @@ public class EquipoRepository implements IEquipoDAO {
 
     @Override
     @Transactional(readOnly = true)
-    public List<Equipo> findAll() {
-        return em.createQuery("from Equipo").getResultList();
+    public List<Equipo> findAll(Integer idTorneo) {
+        String jpql = "SELECT e FROM Equipo e WHERE e.torneo.id = :idTorneo";
+        return em.createQuery(jpql, Equipo.class)
+                .setParameter("idTorneo", idTorneo)
+                .getResultList();
     }
 
     @Override

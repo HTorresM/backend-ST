@@ -15,7 +15,6 @@ import java.util.List;
 @RestController
 @Validated
 @RequestMapping(Constantes.URL_BASE_API)
-@SessionAttributes("deporte")
 public class DeporteController {
 
     @Autowired

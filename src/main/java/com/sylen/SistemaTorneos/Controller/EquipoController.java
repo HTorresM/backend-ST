@@ -16,9 +16,10 @@ public class EquipoController {
     @Autowired
     private EquipoApp equipoApp;
 
+    // TODO: Limitar por id de un torneo o hacer otro endpoint
     @GetMapping(Constantes.LISTA_EQUIPOS)
-    public ResponseEntity<?> getAllEquipos (){
-        return ResponseEntity.ok(equipoApp.findAll());
+    public ResponseEntity<?> getAllEquipos (@PathVariable(name = "idTorneo" ) Integer idTorneo){
+        return ResponseEntity.ok(equipoApp.findAll(idTorneo));
     }
 
     @GetMapping(Constantes.EQUIPO_DETALLE)
@@ -26,6 +27,7 @@ public class EquipoController {
         return ResponseEntity.ok(equipoApp.findOne(idEquipo));
     }
 
+    @PostMapping(Constantes.CREA_EQUIPO)
     public ResponseEntity<?> saveOneEquipo (@RequestBody Equipo equipo){
         equipoApp.save(equipo);
         return ResponseEntity.noContent().build();

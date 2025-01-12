@@ -84,7 +84,6 @@ public class DataLoader implements CommandLineRunner {
                 new Torneo("Mundial LOL","Simple","Reglamento.pdf","Imagen.png",new Evento(4),1)
                 //new Torneo("Manolos","Simple","Reglamento.pdf","Imagen.png",new Evento(1),1)
         );
-
         List<Participante> participantes = List.of(
                 new Participante("HUGO",new Equipo(1)),
                 new Participante("PABLO",new Equipo(1)),

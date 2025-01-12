@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface EquipoApp {
 
-    public List<Equipo> findAll();
+    public List<Equipo> findAll( Integer idTorneo );
 
     public Equipo findOne(Long id);
 

@@ -3,9 +3,11 @@ package com.sylen.SistemaTorneos.Service;
 import com.sylen.SistemaTorneos.Model.DAO.IEncuentroDAO;
 import com.sylen.SistemaTorneos.Model.entity.Encuentro;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class EncuentroAppImpl implements EncuentroApp{
 
     @Autowired

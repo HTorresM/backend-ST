@@ -8,10 +8,12 @@ public interface IEquipoDAO {
 
     /**
      * Método que regresa una lista de los equipos
+     * que solo devulve la informacion con un torneo relacionado
      *
+     * @param idTorneo de tipo Integer,
      * @return Lista de equipos
      */
-    public List<Equipo> findAll();
+    public List<Equipo> findAll(Integer idTorneo);
 
     /**
      * Método que guarda un registro de la tabla de equipo

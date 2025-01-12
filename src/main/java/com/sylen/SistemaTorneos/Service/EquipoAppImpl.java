@@ -14,8 +14,8 @@ public class EquipoAppImpl implements EquipoApp{
     private IEquipoDAO equipoDAO;
 
     @Override
-    public List<Equipo> findAll() {
-        return equipoDAO.findAll();
+    public List<Equipo> findAll(Integer idTorneo) {
+        return equipoDAO.findAll(idTorneo);
     }
 
     @Override
