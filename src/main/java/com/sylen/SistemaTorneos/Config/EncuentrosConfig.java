@@ -39,22 +39,36 @@ public class EncuentrosConfig {
             Integer numeroEquipos = torneo.size();
             Integer numeroJornadas = numeroEquipos - 1;
             Integer numeroEncuentros = numeroEquipos * numeroJornadas / 2;
+            Integer numeroPartidosJornada = numeroEquipos / 2;
             //DETERMINAMOS EL PIVOTE
             Integer equipoPivote = torneo.get(0).getIdEquipo();
             // VERIFICAR NUMERO DE EQUIPOS (PAR O IMPAR) PARA DETERMINAR SI ASIGNAREMOS DESCANSO
             Encuentro encuentro;
             if(numeroEquipos % 2 == 1){
                 // MEZCLAR TODOS CONTRA TODOS INCLUYENDO DESCANSO = NULL
-            } else {
+                //ANADIMOS A LA LISTA DE EQUIPOS UN EQUIPO NULL PARA QUE SE MEZCLE CON LOS DEMAS
+                torneosRegistrados.add(null);
+
+            } //else {
                 // MEZCLAR TODOS CONTRA TODOS SIN DESCANSO
-                for(int i = 0 ; i < numeroEquipos ; i ++ ){
-                    for (int j = 1 ; j <= i ; j ++) {
-                        encuentro = new Encuentro(
-                                new Date(),"Generica",
-                                new Torneo(1),
-                                new Equipo(torneo.get(i).getIdEquipo()),
-                                new Equipo(torneo.get(j).getIdEquipo()));
+            for(int jornada = 0 ; jornada < numeroJornadas ; jornada ++ ){
+                for (int partido = 0 ; partido < numeroPartidosJornada ; partido ++) {
+                    Integer local = ( jornada + partido ) % (numeroJornadas); 
+                    Integer visitante = (numeroEquipos - 1 + jornada + partido) % (numeroJornadas);
+                    
+                    //Con esto mantenemos que el ultimo equipo se quede fijo
+                     if (partido == 0){
+                        visitante = numeroEquipos - 1;
                     }
+
+                    encuentro = new Encuentro(new Torneo(1),torneo.get(local),torneo.get(visitante));
+
+                        //encuentro = new Encuentro(
+                          //      new Date(),"Generica",
+                            //    new Torneo(1),
+                             //   new Equipo(torneo.get(i).getIdEquipo()),
+                              //  new Equipo(torneo.get(j).getIdEquipo()));
+                    //}
                 }
             }
         }
