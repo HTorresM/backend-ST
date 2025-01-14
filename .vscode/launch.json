@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SistemaTorneosApplication<SistemaTorneos>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.sylen.SistemaTorneos.SistemaTorneosApplication",
+            "projectName": "SistemaTorneos",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
