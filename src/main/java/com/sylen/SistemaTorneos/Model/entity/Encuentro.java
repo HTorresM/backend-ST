@@ -47,7 +47,7 @@ public class Encuentro implements Serializable {
         this.equipoVisitante = equipoVisitante; 
     }
 
-    public Encuentro(Torneo torneo, Equipo equipoLocal, Equipo equipoVisitante) {
+    public Encuentro(Date fechaEncuentro,Torneo torneo, Equipo equipoLocal, Equipo equipoVisitante) {
         this.idEncuentro = null;
         this.torneo = torneo;
         this.equipoLocal = equipoLocal;

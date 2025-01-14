@@ -12,6 +12,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -43,6 +44,13 @@ public class EncuentrosConfig {
                 torneoRegistrado.add(null);
             }
             // MEZCLAR TODOS CONTRA TODOS SIN DESCANSO
+            Calendar calendario = Calendar.getInstance();
+            calendario.setTime(torneo.getFechaInicio());
+            calendario.set(Calendar.HOUR_OF_DAY, 10); // Hora inicial de los partidos
+            calendario.set(Calendar.MINUTE, 0);
+            calendario.set(Calendar.SECOND, 0);
+
+
             for(int jornada = 0 ; jornada < numeroJornadas ; jornada ++ ){
                 for (int partido = 0 ; partido < numeroPartidosJornada ; partido ++) {
                     Integer local = ( jornada + partido ) % (numeroJornadas);
@@ -52,10 +60,25 @@ public class EncuentrosConfig {
                     if (partido == 0){
                         visitante = numeroEquipos - 1;
                     }
-                    encuentro = new Encuentro(torneo,torneoRegistrado.get(local),torneoRegistrado.get(visitante));
+                    //Verificar si la fecha es fin de semana
+                    encuentro = new Encuentro(evitarFinDeSemana(calendario),torneo,torneoRegistrado.get(local),torneoRegistrado.get(visitante));
                     encuentroApp.save(encuentro);
+                    calendario.add(Calendar.HOUR_OF_DAY, 2); // Incrementar hora para el siguiente partido
+
                 }
+                calendario.add(Calendar.DAY_OF_MONTH, 1); // Pasar a la siguiente jornada
+                calendario.set(Calendar.HOUR_OF_DAY, 10); // Reiniciar la hora para la próxima jornada
             }
         }
     }
+
+    // Método auxiliar para evitar fines de semana
+    private Date evitarFinDeSemana(Calendar calendario) {
+        // Verificar si la fecha actual es sábado o domingo
+        while (calendario.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY || calendario.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
+            calendario.add(Calendar.DAY_OF_MONTH, 1); // Avanzar al siguiente día
+        }
+        return calendario.getTime();
+    }
+
 }

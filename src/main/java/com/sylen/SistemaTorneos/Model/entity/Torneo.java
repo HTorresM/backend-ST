@@ -39,6 +39,11 @@ public class Torneo implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date fechaLimiteInscripcion;
 
+    @Column(name = "fecha_inicio")
+    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @Temporal(TemporalType.DATE)
+    private Date fechaInicio;
+
     @OneToOne
     @JoinColumn(name = "ganador_id")
     private Equipo equipoGanador;
@@ -153,4 +158,14 @@ public class Torneo implements Serializable {
     public void setFechaLimiteInscripcion(Date fechaLimiteInscripcion) {
         this.fechaLimiteInscripcion = fechaLimiteInscripcion;
     }
+
+    public Date getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(Date fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    
 }
