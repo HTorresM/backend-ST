@@ -44,4 +44,9 @@ public class Constantes {
     public static final String TORNEO_DETALLE = "/torneo/{id}";
     public static final String CREA_TORNEO = "/torneo";
 
+    //  ADMINISTRADOR
+    public static final String LISTA_ADMINISTRADORES = "/administrador";
+    public static final String ADMINISTRADOR_DETALLE = "/administrador/{id}";
+    public static final String CREA_ADMINISTRADOR = "/administrador";
+
 }

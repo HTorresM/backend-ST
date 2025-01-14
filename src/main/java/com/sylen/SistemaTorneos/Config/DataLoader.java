@@ -26,6 +26,7 @@ public class DataLoader implements CommandLineRunner {
     private IEquipoDAO equipoDAO;
     @Autowired
     private IParticipanteDAO participanteDAO;
+    @Autowired IAdministradorDAO administradorDAO;
 
     @Override
     public void run(String... args) throws Exception {
@@ -111,6 +112,9 @@ public class DataLoader implements CommandLineRunner {
         for (Torneo torneo : torneos){
             torneoDAO.save(torneo);
         }
+        Administrador administrador = new Administrador("Promotor", "Promotores", "Deportivo", "promotor@deportivo.com", "Promotor1", 1234567, "Ninguna", "7222222222",new Plantel(1));
+        administradorDAO.save(administrador);
+        
         equipoDAO.save(new Equipo("PinHeads","Logo",new Torneo(1)));
         for (Participante participante : participantes){
             participanteDAO.save(participante);
